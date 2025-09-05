@@ -15,12 +15,6 @@ fi
 TEMPLATE_BRANCH="${1:-main}"
 MAIN_BRANCH="main"
 
-SCRIPT_FULLPATH="$( readlink -f -- "${BASH_SOURCE[0]:-$0}" 2> '/dev/null'; )";
-function DeleteSelf {
-	echo -e "\n${CLR_SUCCESS}Successfully generated git repository from template ${TEMPLATE_BRANCH}, deleting generator script from template.${CLR_RESET}";
-	rm -- "${SCRIPT_FULLPATH}"
-}
-
 # This ensures the script exits if any errors are met. We do not wish to continue if any git command fails
 set -e
 
@@ -34,5 +28,5 @@ git branch | grep -v "${MAIN_BRANCH}$" | xargs git branch -D
 git branch -r | grep -v "${MAIN_BRANCH}$" | xargs -0 -- basename | xargs git push origin --delete
 git fetch --prune
 
-# When generaton is finished sucessfully, delete the generator
-trap DeleteSelf EXIT
+# When generaton is finished sucessfully reset to the new main branch and thus delete this script
+git reset --hard "origin/${MAIN_BRANCH}"
