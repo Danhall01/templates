@@ -25,16 +25,13 @@ function DeleteSelf {
 set -e
 
 # Generate the repository from template
-git fetch origin
 git checkout "${TEMPLATE_BRANCH}"
-git reset --hard origin/"${TEMPLATE_BRANCH}"
 git push origin HEAD:${MAIN_BRANCH} --force
 git checkout "${MAIN_BRANCH}"
 
 # Cleanup all local and remote branches besides the main one
-git fetch --prune
 git branch | grep -v "${MAIN_BRANCH}$" | xargs git branch -D
-git branch -r --merged main | grep -v "${MAIN_BRANCH}$" | xargs -0 -- basename | xargs git push origin --delete
+git branch -r | grep -v "${MAIN_BRANCH}$" | xargs -0 -- basename | xargs git push origin --delete
 git fetch --prune
 
 # When generaton is finished sucessfully, delete the generator
