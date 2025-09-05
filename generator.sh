@@ -27,7 +27,7 @@ set -e
 # Generate the repository from template
 git fetch origin
 git checkout "${TEMPLATE_BRANCH}"
-#git reset --hard origin/"${TEMPLATE_BRANCH}"
+git reset --hard origin/"${TEMPLATE_BRANCH}"
 git push origin HEAD:${MAIN_BRANCH} --force
 git checkout "${MAIN_BRANCH}"
 
