@@ -30,3 +30,5 @@ git fetch --prune
 
 # When generaton is finished sucessfully reset to the new main branch and thus delete this script
 git reset --hard "origin/${MAIN_BRANCH}"
+
+echo -e "\n${CLR_SUCCESS}Successfully generated git repository from template ${TEMPLATE_BRANCH}.${CLR_RESET}"
