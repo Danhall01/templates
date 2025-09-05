@@ -1,16 +1,17 @@
 ### Templates
-My templates can be found on seperate branches for each language. See the branches.
+My templates can be found on seperate branches for each language.
 
 ## Usage:
-1. Go to `https://github.com/Danhall01/templates` and click the button `Use this template`.
-2. Make sure to toggle the `Include all branches` to *ON*.
+1. Go to `https://github.com/Danhall01/templates` and click the button `Use this template` -> 'Create a new repository'.
+2. Make sure to toggle the `Include all branches` option to **ON**.
 3. Clone the repository locally onto your machine.
 4. When in the `main` branch run the generator script with the desired template branch as an argument. 
-Linux
+
+Bash
 ```bash
 ./generator.sh "<branch>"
 ```
-Windows
+Batch (TODO)
 ```batch
 ./generator.bat "<branch>"
 ```
