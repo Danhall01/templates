@@ -6,11 +6,12 @@ My templates can be found on seperate branches for each language. See the branch
 2. Make sure to toggle the `Include all branches` to *ON*.
 3. Clone the repository locally onto your machine.
 4. When in the `main` branch run the generator script with the desired template branch as an argument. 
-Linux
+
+Bash
 ```bash
 ./generator.sh "<branch>"
 ```
-Windows
+Batch (TODO)
 ```batch
 ./generator.bat "<branch>"
 ```
