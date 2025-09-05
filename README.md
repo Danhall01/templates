@@ -17,5 +17,17 @@ Batch (TODO)
 ```
 5. Done! The repository should now only include the `main` branch with no local or remote remains of the other template branches.
 
+## Github CLI:
+The github CLI offers a command line approach to managing github. To create a new repository based on this template you can do the following.
+
+```bash
+gh repo create <repoName> --template="https://github.com/Danhall01/templates" --<private|public> --include-all-branches
+git clone <repo>
+cd <repo>
+./generator.sh "<branch>"
+# or
+./generator.bat "<branch>"
+```
+
 ## Remarks:
 * If you want the main branch to be called another name than `main`, then you need to edit the variable containing the `MAIN_BRANCH` in the desired generator script before running it. It is however recommended to change the main branch name after using the generator script.
