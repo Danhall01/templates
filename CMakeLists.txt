@@ -4,6 +4,9 @@ project(TEMPLATE VERSION 0.1)
 set(TARGET "TEMPLATE")
 set(COMMON_LIBS "SharedLibraries")
 
+# Enable the use of add_test in the test directory
+enable_testing()
+
 # Set all compile definitions
 set(CMAKE_C_STANDARD ${CMAKE_C_STANDARD_LATEST})
 set(CMAKE_C_STANDARD_REQUIRED ON)
