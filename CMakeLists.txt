@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 4.0.2)
-project(TEMPLATE VERSION 0.1)
+project(IMPASSE_TOOLS VERSION 0.1)
 
-set(TARGET "TEMPLATE")
+set(TARGET "app")
 set(COMMON_LIBS "SharedLibraries")
 
 # Enable the use of add_test in the test directory
@@ -35,15 +35,18 @@ target_link_libraries(${COMMON_LIBS}
 
 # Main executable
 add_executable(${TARGET} main.c)
-target_link_libraries(${TARGET} PRIVATE ${COMMON_LIBS})
-
-# Precompile headers
-target_precompile_headers(${TARGET} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/pch.h")
 
 # Add Debug flags
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_compile_definitions(${TARGET} PUBLIC _DEBUG)
 endif()
+
+# Link all libraries to exe
+target_link_libraries(${TARGET} PRIVATE ${COMMON_LIBS})
+
+# Precompile headers
+target_precompile_headers(${TARGET} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/pch.h")
+
 
 # Include all source files
 target_include_directories(${TARGET} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
